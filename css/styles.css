@@ -66,7 +66,7 @@ body {
 a {
 	text-decoration: none;	
 }
-header {
+.header {
 	width: 100%;	
 	display: flex;
 	background: black;
@@ -110,14 +110,14 @@ header {
 			align-items: center;
 		}
 			.phone {
-				width: 33%;
+				width: 50%;
 				height: 100%;
 				display: flex;				
 				color: #ffffff;
 			}
 
 			.socials {
-				width: 33%;
+				width: 50%;
 				height: 100%;
 				display: flex;				
 				font-size: 30px;	
@@ -131,9 +131,37 @@ header {
 				.padding-link {
 					padding: 0 20px;
 				}
+.header-menu {
+	display: flex;
+	width: 100%;
+	padding: 10px 0;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	background: black;
+}
+.header-menu a {
+	text-decoration: none;	
+	color: black;
+}
+	.button {
+		display: flex;
+		width: 200px;
+		height: 40px;
+		padding: 5px 0;		
+		border-radius: 5px;
+		background: coral;
+		color: #ffffff;
+		justify-content: center;
+		align-items: center;
+	}
+	.button:hover {		
+		color: #000000;	
+		background: #f8642e;	
+		transition: .5s;
+	}
 .description {
 	width: 100%;
-	padding: 10px;
+	padding: 20px;
 	background: #5d5d5d;
 	color: #ffffff;
 	line-height: 1.5;
@@ -144,6 +172,12 @@ header {
 	justify-content: space-around;
 	flex-wrap: wrap;
 }
+	.title-product {
+		width: 100%;
+		font-size: 30px;
+		font-weight: bold;
+		padding: 20px 20px 20px 20px;
+	}
 	.box {
 		width: 220px;
 		height: 380px;
@@ -155,9 +189,30 @@ header {
 		box-shadow: 0 0 20px rgba(0,0,0,0.5);
 	}
 		.box__product {
+			position: relative;
 			width: 200px;
-			height: 300px;	
+			height: 267px;	
 		}
+			.popapp-text {
+				display: none;
+										 
+			}
+			.box:hover .popapp-text {
+				display: block;
+				position: absolute;							
+				left: 65px;
+				top: 230px;
+				color: #f8642e;				
+				text-shadow: 0 -1px rgba(0,0,0,.1);				
+				-webkit-animation: pulsate 1.2s linear infinite;
+				animation: pulsate 1.2s linear infinite;
+			  }			 
+			@-webkit-keyframes pulsate {
+				50% { color: #fff; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff; }
+			   }
+			   @keyframes pulsate {
+				50% { color: #fff; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff; }
+			   }			
 		.box__text {
 			padding-top: 10px;
 			text-align: center;
@@ -170,6 +225,14 @@ header {
 			.center {
 				display: flex;	
 				justify-content: center;
+			}
+			.sale {		
+				font-size: 30px;			
+				font-weight: bold;
+			}
+			.sale-face {		
+				font-size: 20px;			
+				font-weight: bold;
 			}
 .footer {
 	display: flex;
@@ -194,9 +257,30 @@ header {
 		.padding-text {
 			padding: 10px 0;
 		}
+.scroll-up {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	width: 120px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid black;
+	border-radius: 10px;
+	background: coral;
+	transition: .5s;	
+}
+.scroll-up a {
+	text-decoration: none;	
+	color: #ffffff;
+}
+.scroll-up:hover a {	
+	color: #000000;
+}
 
-@media only screen and (min-width: 600px) and (max-width: 1150px){
-	header {		
+@media only screen and (min-width: 630px) and (max-width: 1150px){
+	.header {		
 		flex-direction: column;			
 	}
 	.logo {
@@ -207,10 +291,26 @@ header {
 		width: 100%;
 		padding-top: 20px;
 	}
+	.address {
+		width: 50%;
+		padding-left: 20px;
+	}
+	.phone-wrap {		
+		width: 50%;
+	}
+	.phone {
+		width: 50%;
+	}
+
+	.socials {
+		width: 50%;			
+	}
+	.button {		
+		margin: 5px 0;		
+	}
 	.footer {		
 		flex-direction: column;
-		width: 100%;
-			
+		width: 100%;			
 	}
 	.footer__address {		
 		width: 100%;
@@ -222,8 +322,8 @@ header {
 		background-size: cover;
 	}
 }
-	@media only screen and (min-width: 320px) and (max-width: 599.9px){
-		header {		
+	@media only screen and (min-width: 320px) and (max-width: 629.9px){
+		.header {		
 			flex-direction: column;			
 		}
 		.logo {
@@ -260,6 +360,9 @@ header {
 			width: 50%;
 			justify-content: center;	
 		}
+		.button {		
+			margin: 5px 0;		
+		}
 		.footer {		
 			flex-direction: column;
 			width: 100%;
@@ -268,10 +371,16 @@ header {
 		.footer__address {		
 			width: 100%;
 			padding-top: 20px;
+			padding-left: 20px;
 		}
 		.footer__map {
 			width: 100%;
 			min-height: 300px;
 			background-size: cover;
+		}
+		.scroll-up {			
+			right: 0;
+			left: 0;		
+			margin: auto;			 
 		}
 	}
